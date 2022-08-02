@@ -12,8 +12,8 @@ const DEFAULT_YAML = 'Default TestSpec for Android Appium Java TestNG v3.0'
 // const ACCESS_KEY = "None";
 // const SECRET_KEY = "None";
 
-// AWS.config = new AWS.Config();
-// AWS.config.credentials = new AWS.Credentials(process.env.ACCESS_KEY, process.env.SECRET_KEY);
+AWS.config = new AWS.Config();
+AWS.config.credentials = new AWS.Credentials(process.env.ACCESS_KEY, process.env.SECRET_KEY);
 
 let codebuild = new AWS.CodeBuild({ region: REGION })
 var devicefarm = new AWS.DeviceFarm({ region: REGIONTEST });
