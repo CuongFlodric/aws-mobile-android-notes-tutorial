@@ -12,8 +12,8 @@ const APP_PATH = './/app//build//outputs//apk//debug//app-debug.apk';
 // const ACCESS_KEY = "None";
 // const SECRET_KEY = "None";
 
-// AWS.config = new AWS.Config();
-// AWS.config.credentials = new AWS.Credentials(process.env.ACCESS_KEY, process.env.SECRET_KEY);
+AWS.config = new AWS.Config();
+AWS.config.credentials = new AWS.Credentials(process.env.ACCESS_KEY, process.env.SECRET_KEY);
 
 var devicefarm = new AWS.DeviceFarm({ region: REGION });
 function get_project_arn(name) {
