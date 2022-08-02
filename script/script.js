@@ -8,9 +8,7 @@ const TEST_PACKAGE = 'test-package.zip'
 const APP_PHARMACY = 'pharmacy.apk'
 const DEVICE_POOL_NAME = 'Android10'
 const DEFAULT_YAML = 'Default TestSpec for Android Appium Java TestNG v3.0'
-const APP_USER_PATH = './/user.apk';
-const TEST_PACKAGE_PATH = './/test-package.zip';
-const APP_PHARMACY_PATH = './/pharmacy.apk';
+const APP_PATH = './/app//build//outputs//apk//debug//app-debug.apk';
 // const ACCESS_KEY = "None";
 // const SECRET_KEY = "None";
 
@@ -241,7 +239,7 @@ async function test() {
 
 }
 
-// test()
-var upload_arn = upload('ANDROID_APP', APP_USER, APP_USER_PATH)
+var upload_arn = upload('ANDROID_APP', APP_USER, APP_PATH)
+test()
 // upload('ANDROID_APP', APP_PHARMACY, APP_PHARMACY_PATH)
 // upload('APPIUM_JAVA_TESTNG_TEST_PACKAGE', TEST_PACKAGE , TEST_PACKAGE_PATH)
