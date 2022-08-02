@@ -9,9 +9,6 @@ const APP_PHARMACY = 'pharmacy.apk'
 const DEVICE_POOL_NAME = 'Android10'
 const DEFAULT_YAML = 'Default TestSpec for Android Appium Java TestNG v3.0'
 const APP_PATH = './/app//build//outputs//apk//debug//app-debug.apk';
-// const ACCESS_KEY = "None";
-// const SECRET_KEY = "None";
-
 AWS.config = new AWS.Config();
 AWS.config.credentials = new AWS.Credentials(process.env.ACCESS_KEY, process.env.SECRET_KEY);
 
