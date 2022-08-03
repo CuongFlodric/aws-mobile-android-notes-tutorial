@@ -150,7 +150,7 @@ async function test() {
     );
 
     var run_data = await _poll_until_run_done(run_arn);
-    console.log(run_data);
+    console.log(run_data.result);
 
 }
 
