@@ -90,7 +90,9 @@ function _poll_until_run_done(run_arn) {
                         _poll_until_run_done(run_arn)
                     }, 5000)
                 } else {
-                    console.log(data)
+                    console.log('Current status: ' + data.run.status)
+                    console.log('Current result: ' + data.run.result)
+                    if (data.run.result !== 'PASSED') process.exit(1)
                     resolve(data)
                 }
             }
