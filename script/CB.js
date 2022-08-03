@@ -88,13 +88,15 @@ function _poll_until_run_done(run_arn) {
             if (err) {
                 reject(err)
             } else {
-                if (data.run.status === 'PENDING' || data.run.status === 'RUNNING' || data.run.status === 'SCHEDULING') {
+                if (data.run.status !== 'COMPLETED') {
                     console.log('Current status: ' + data.run.status)
                     setTimeout(function () {
                         _poll_until_run_done(run_arn)
                     }, 5000)
                 } else {
-                    console.log(data)
+                    console.log('Current status: ' + data.run.status)
+                    console.log('Current result: ' + data.run.result)
+                    if (data.run.result !== 'PASSED') process.exit(1)
                     resolve(data)
                 }
             }
@@ -149,7 +151,7 @@ async function test() {
         yaml = yaml_arn,
     );
 
-//     var run_data = await _poll_until_run_done(run_arn);
+    var run_data = await _poll_until_run_done(run_arn);
 }
 
 
