@@ -94,7 +94,7 @@ function _poll_until_run_done(run_arn) {
                         _poll_until_run_done(run_arn)
                     }, 5000)
                 } else {
-//                     console.log(data)
+                    console.log(data)
                     resolve(data)
                 }
             }
@@ -149,10 +149,7 @@ async function test() {
         yaml = yaml_arn,
     );
 
-    var run_data = await _poll_until_run_done(run_arn);
-    
-    console.log(run_data.result);
-    if(run_data.result !== "PASSED") process.exitCode = 1
+//     var run_data = await _poll_until_run_done(run_arn);
 }
 
 
