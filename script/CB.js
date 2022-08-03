@@ -150,7 +150,7 @@ async function test() {
     );
 
     var run_data = await _poll_until_run_done(run_arn);
-    if(run_data.result !== "PASSED") process.exit(1)
+    if(run_data.result !== "PASSED") process.exitCode = 1
 }
 
 
