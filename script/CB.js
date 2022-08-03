@@ -94,7 +94,7 @@ function _poll_until_run_done(run_arn) {
                         _poll_until_run_done(run_arn)
                     }, 5000)
                 } else {
-                    console.log(data)
+//                     console.log(data)
                     resolve(data)
                 }
             }
