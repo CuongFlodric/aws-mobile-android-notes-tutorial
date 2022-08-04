@@ -50,13 +50,9 @@ function get_upload_arn(project_arn,name){
             if (err) {
                 reject(err)
             } else {
-                console.log(data.uploads.filter(function (upload) {
-                    return upload.name === name
-                }))
                 var uploadArn = data.uploads.filter(function (upload) {
                     return upload.name === name
                 })[0].arn
-                console.log(uploadArn)
                 resolve(uploadArn)
             }
         })
@@ -78,13 +74,25 @@ function get_yaml_arn(project_arn,name){
     })
 }
 
+function get_run_result(run_arn) {
+    return new Promise((resolve, reject) => {
+        devicefarm.getRun({arn: run_arn}, function (err, data) {
+            if (err) {
+                reject(err)
+            } else {
+                resolve(data)
+            }
+        })
+    })
+}
+
 function _poll_until_run_done(run_arn) {
     return new Promise((resolve, reject) => {
         devicefarm.getRun({arn: run_arn}, function (err, data) {
             if (err) {
                 reject(err)
             } else {
-                if (data.run.status === 'PENDING' || data.run.status === 'RUNNING' || data.run.status === 'SCHEDULING') {
+                if (data.run.status !== 'COMPLETED') {
                     console.log('Current status: ' + data.run.status)
                     setTimeout(function () {
                         _poll_until_run_done(run_arn)
@@ -147,8 +155,10 @@ async function test() {
         yaml = yaml_arn,
     );
 
-    var run_data = await _poll_until_run_done(run_arn);
+    await _poll_until_run_done(run_arn)
+    var run_data = await get_run_result(run_arn)
     console.log(run_data);
+    console.log('1');
 
 }
 
