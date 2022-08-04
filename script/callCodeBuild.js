@@ -89,8 +89,8 @@ async function poll_until_build_success(buildId, timeOutSeconds = 100) {
 }
 
 async function execute() {
-    const USER_PROJECT = "dev-user"
-    const PHARMACY_PROJECT = "dev-pharmacy"
+    const USER_PROJECT = "User"
+    const PHARMACY_PROJECT = "Pharmacy"
     // let projectName = process.env.projectName || FALLBACK_PROJECT
     let projectName = process.env.projectName
     if (projectName != "both") {
