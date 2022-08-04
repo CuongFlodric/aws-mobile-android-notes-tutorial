@@ -8,7 +8,7 @@ phases:
   build:
     commands:
       - ./gradlew assembleDebug
-      - node script.js
+      - node script/upload.js
 artifacts:
   files:
     - app/build/outputs/apk/app-debug.apk
