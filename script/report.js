@@ -4,7 +4,7 @@ const PROJECT_NAME = "Automation Test"
 
 AWS.config = new AWS.Config()
 AWS.config.region = REGION
-AWS.config.credentials = new AWS.Credentials(ACCESS_KEY, SECRET_KEY);
+AWS.config.credentials = new AWS.Credentials(process.env.ACCESS_KEY, process.env.SECRET_KEY);
 
 let devicefarm = new AWS.DeviceFarm()
 var nodemailer = require('nodemailer');
