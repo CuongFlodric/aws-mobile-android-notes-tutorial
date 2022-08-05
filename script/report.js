@@ -93,7 +93,7 @@ async function getLog() {
     var linkLog = await logFiles(run.arn, "TESTSPEC_OUTPUT")[0]
     if(!linkLog) linkLog = "No log"
 
-    var text = "Test run: " + run.name + "\n" + "Time Created: " + timeCreated + "\n" + "Time Stop: " + timeStoped + "\n" +  "Test Status: " + run.status + "\n" + "Test result: " + run.result + "\n" + "Counters :" + "\n\t" + "Passed: " + run.counters.passed + "\n\t" + "Failed: " + run.counters.failed + "\n\t" + "Skipped: " + run.counters.skipped + "\n\t" + "Total: " + run.counters.total + "\n" + "Video link: " + linkVideo + "\n" + files[1].name + "\n" + "Log link: " + linkLog
+    var text = "Test run: " + run.name + "\n" + "Time Created: " + timeCreated + "\n" + "Time Stop: " + timeStoped + "\n" +  "Test Status: " + run.status + "\n" + "Test result: " + run.result + "\n" + "Counters :" + "\n\t" + "Passed: " + run.counters.passed + "\n\t" + "Failed: " + run.counters.failed + "\n\t" + "Skipped: " + run.counters.skipped + "\n\t" + "Total: " + run.counters.total + "\n" + "Video link: " + linkVideo + "\n" + files[2].name + "\n" + "Log link: " + linkLog
 
     mailOptions.text = text
     mailOptions.subject = "AUTOMATION TEST REPORT" + " " + timeCreated + " - " + run.result
