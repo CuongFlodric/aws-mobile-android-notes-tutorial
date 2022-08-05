@@ -60,7 +60,7 @@ function list_run_artifacts(run_arn) {
     return new Promise((resolve, reject) => {
         devicefarm.listArtifacts(params, function (err, data) {
             if (err) reject(err)
-            else resolve(data.artifacts)
+            else resolve(data.artifacts[0])
         })
     })
 }
