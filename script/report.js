@@ -60,7 +60,7 @@ function list_run_artifacts(run_arn) {
     return new Promise((resolve, reject) => {
         devicefarm.listArtifacts(params, function (err, data) {
             if (err) reject(err)
-            else resolve(data.artifacts[0])
+            else resolve(data.artifacts)
         })
     })
 }
@@ -89,10 +89,11 @@ async function getLog() {
 
     var linkVideo = await logFiles(run.arn, "url")[0]
     if(!linkVideo) linkVideo = "No video"
+    let files = await list_run_artifacts(run_arn)
     var linkLog = await logFiles(run.arn, "TESTSPEC_OUTPUT")[0]
     if(!linkLog) linkLog = "No log"
 
-    var text = "Test run: " + run.name + "\n" + "Time Created: " + timeCreated + "\n" + "Time Stop: " + timeStoped + "\n" +  "Test Status: " + run.status + "\n" + "Test result: " + run.result + "\n" + "Counters :" + "\n\t" + "Passed: " + run.counters.passed + "\n\t" + "Failed: " + run.counters.failed + "\n\t" + "Skipped: " + run.counters.skipped + "\n\t" + "Total: " + run.counters.total + "\n" + "Video link: " + linkVideo + "\n" + "Log link: " + linkLog
+    var text = "Test run: " + run.name + "\n" + "Time Created: " + timeCreated + "\n" + "Time Stop: " + timeStoped + "\n" +  "Test Status: " + run.status + "\n" + "Test result: " + run.result + "\n" + "Counters :" + "\n\t" + "Passed: " + run.counters.passed + "\n\t" + "Failed: " + run.counters.failed + "\n\t" + "Skipped: " + run.counters.skipped + "\n\t" + "Total: " + run.counters.total + "\n" + "Video link: " + linkVideo + files.url + "\n" + "Log link: " + linkLog
 
     mailOptions.text = text
     mailOptions.subject = "AUTOMATION TEST REPORT" + " " + timeCreated + " - " + run.result
