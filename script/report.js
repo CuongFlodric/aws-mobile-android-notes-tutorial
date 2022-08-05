@@ -12,14 +12,14 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'lekubin00@gmail.com',
-    pass: 'pulfqeffeqsbwnol'
+    user: 'phamnhathoang091@gmail.com',
+    pass: 'grtjacpegmkiylcf'
   }
 });
 
 var mailOptions = {
-  from: 'lekubin00@gmail.com',
-  to: 'cuongdanghcmut@gmail.com',
+  from: 'phamnhathoang091@gmai.com',
+  to: 'nhathoangpham1107@gmail.com',
   subject: 'AUTOMATION TEST REPORT',
   text: 'That was easy!'
 };
