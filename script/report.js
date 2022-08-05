@@ -89,7 +89,7 @@ async function getLog() {
 
     var linkVideo = await logFiles(run.arn, "url")[0]
     if(!linkVideo) linkVideo = "No video"
-    let files = await list_run_artifacts(run_arn)
+    let files = await list_run_artifacts(run.arn)
     var linkLog = await logFiles(run.arn, "TESTSPEC_OUTPUT")[0]
     if(!linkLog) linkLog = "No log"
 
