@@ -67,7 +67,7 @@ function list_run_artifacts(run_arn) {
 
 async function logFiles(run_arn, type) {
     let files = await list_run_artifacts(run_arn)
-    const link = files.filter((f) => f.type == url)
+    const link = files.filter((f) => f.type == type)
     return link
 }
 
@@ -87,7 +87,7 @@ async function getLog() {
     var timeCreated = new Date(run.created).toLocaleString(options = { timeZone: 'UTC' })
     var timeStoped = new Date(run.stopped).toLocaleString(options = { timeZone: 'UTC' })
 
-    var linkVideo = await logFiles(run.arn, "VIDEO")[0]
+    var linkVideo = await logFiles(run.arn, "url")[0]
     if(!linkVideo) linkVideo = "No video"
     var linkLog = await logFiles(run.arn, "TESTSPEC_OUTPUT")[0]
     if(!linkLog) linkLog = "No log"
