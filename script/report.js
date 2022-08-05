@@ -54,8 +54,8 @@ function get_project_last_run(project_arn) {
 
 function list_run_artifacts(run_arn) {
     let params = {
-        type: "FILE", // FILE | SCREENSHOT | LOG
         arn: run_arn,
+        type: "FILE", // FILE | SCREENSHOT | LOG
     }
     return new Promise((resolve, reject) => {
         devicefarm.listArtifacts(params, function (err, data) {
@@ -67,7 +67,7 @@ function list_run_artifacts(run_arn) {
 
 async function logFiles(run_arn, type) {
     let files = await list_run_artifacts(run_arn)
-    const link = files.filter((f) => f.type == type)
+    const link = files.filter((f) => f.type == url)
     return link
 }
 
