@@ -37,7 +37,11 @@ step 'Run docker in interactive mode':
 ```
 
 ### Common issues
- ./gradlew
+Bitbucket cần check đúng branch của submodule
+    branch=18_07_2022
+	Trong ErrorUtil.kt: response.body -> response.body()
+- Trong gradlew: sửa line ending CRLF -> LF
+
 
 ### Useful command:
 ```
